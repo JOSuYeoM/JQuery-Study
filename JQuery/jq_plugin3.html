@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Plugin </title>
+<style>
+	*{margin: 0;padding: 0;}
+	li{list-style: none;}
+	body{font: 14px Malgun Gothic,"맑은고딕",sans-serif;color: #555;}
+	h1{font-size:1em;margin-bottom:10px;}
+</style>
+<link rel="stylesheet" href="css/faq.css">
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+	$.fn.extend({ 
+		faq: function() {
+			var ts = $(this);
+			$.each(ts, function(i, o){
+				$("button", o).on("click", faqHanddler);
+				function faqHanddler() {
+					if( $(this).parent().next().is(":hidden")) {
+						$("li>div:visible", o).hide();
+						$(this).parent().next().show();
+					} else {
+						$("li>div:visible", o).hide();
+					}
+				}
+			});
+		}
+	});
+
+	$(".faq").faq();
+});
+</script>
+</head>
+<body>
+	<h1>☆☆☆☆☆</h1>
+	<div class="faq">
+		<ul>
+			<li>
+				<p><button>Q1. 이름이 뭔가용?</button></p>
+				<div>
+					<div class="cont">조수연</div>
+				</div>
+			</li>
+			<li>
+					<p><button>Q2. 고향이 어디인가용?</button></p>
+					<div>
+						<div class="cont">제주도</div>
+					</div>
+			</li>
+		</ul>
+	</div>
+	<h1>★★★★★</h1>
+	<div class="faq">
+		<ul>
+			<li>
+				<p><button>Q1. 몇 살인가용?</button></p>
+				<div>
+					<div class="cont">22</div>
+				</div>
+			</li>
+			<li>
+				<p><button>Q2. 어디 사나용?</button></p>
+				<div>
+					<div class="cont">서울</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
